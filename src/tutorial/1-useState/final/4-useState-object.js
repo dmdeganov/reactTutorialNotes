@@ -1,0 +1,32 @@
+import React, { useState } from 'react';
+
+const UseStateObject = () => {
+  const [person, setPerson] = useState({
+    name: 'peter',
+    age: 24,
+    message: 'random message',
+  });
+
+  // const [name,setName] = useState('peter')
+  // const [age,setAge] = useState(24)
+  // const [message,setMessage] = useState('random message')
+
+  const changeMessage = () => {
+    setPerson({ ...person, message: 'hello world' });
+    //NOTE: if we spread an object inside of the {} we get the same object, if we want to rewrite something after spreading we can specify the value of that property
+    // setMessage('hello world')
+  };
+
+  return (
+    <>
+      <h3>{person.name}</h3>
+      <h3>{person.age}</h3>
+      <h4>{person.message}</h4>
+      <button className="btn" onClick={changeMessage}>
+        change message
+      </button>
+    </>
+  );
+};
+
+export default UseStateObject;
